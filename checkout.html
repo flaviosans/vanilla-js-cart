@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script>
         window.addEventListener("load", function(){
@@ -11,13 +10,15 @@
             cart.list();
         });
     </script>
-    <title>Cart JS Example</title>
+    <title>Document</title>
 </head>
 <body>
-    <div id="items"></div>
-    <div class="cart-wrap">
-        <div id="cart-products"></div>
-        <div id="cart-list"></div>
-    </div>
-</body>f
+    <h2>Finalizar pedido</h2>
+    <div id="cart-list"></div>
+
+    <form id="checkout" action="localhost:8000/api/checkout" method="post">
+
+    </form>
+
+</body>
 </html>

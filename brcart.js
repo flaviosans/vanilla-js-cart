@@ -64,6 +64,7 @@ var products = {
 
   var cart = {
     data:null,
+    items:0,
     load:function () {
       cart.data = localStorage.getItem("cart");
       if(cart.data == null) { cart.data = {}; }
@@ -89,6 +90,7 @@ var products = {
       cart.list();
     },
     list:function(){
+      cart.items = 0;
       var container = document.getElementById("cart-list"),
         item = null, part = null, product = null;
       container.innerHTML = "";
@@ -129,7 +131,16 @@ var products = {
           subtotal = product['qty'] * product['price'];
           total += subtotal;
           container.appendChild(item);
+
+          // Number of items
+          cart.items += 1 * product['qty'];
         }
+
+        part = document.createElement("div");
+        part.innerHTML = this.items;
+        container.appendChild(part);
+
+        
         // Empty buttons
         item = document.createElement("input");
         item.type = "button";
@@ -164,10 +175,8 @@ var products = {
       }
     },
     checkout:function(){
-      alert("todo");
+      var pedido = {};
+      pedido.itens = cart.data;
+      alert(JSON.stringify(pedido));
     }
   };
-  window.addEventListener("load", function(){
-    cart.load();
-    cart.list();
-  });
